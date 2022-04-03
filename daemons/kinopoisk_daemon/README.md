@@ -1,1 +1,5 @@
-sbt -mem 1024 -Duser.timezone=UTC -Dconfig.resource=application.conf -Dlogback.configurationFile=logback.xml -Dhttp.port=80 daemonKinopoisk/run
+## Start 
+* `sbt`
+* see all the projects `projects`
+* select the project `project daemonKinopoisk`
+* run the project `run`
