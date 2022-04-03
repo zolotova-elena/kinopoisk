@@ -1,11 +1,12 @@
 package ru.kinopoisk.daemon.kinopoisk_uploader
 
+import javax.inject.Inject
+
+import scala.concurrent.Future
+
 import akka.Done
 import akka.event.LoggingAdapter
 import akka.stream.scaladsl.Sink
-
-import javax.inject.Inject
-import scala.concurrent.Future
 
 class KinopoiskUploaderSink @Inject()(
   log: LoggingAdapter

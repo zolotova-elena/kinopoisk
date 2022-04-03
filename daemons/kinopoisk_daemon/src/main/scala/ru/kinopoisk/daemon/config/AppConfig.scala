@@ -1,8 +1,8 @@
 package ru.kinopoisk.daemon.config
 
-import com.typesafe.config.{Config, ConfigFactory}
-
 import scala.concurrent.duration.{DurationLong, FiniteDuration}
+
+import com.typesafe.config.{Config, ConfigFactory}
 
 class AppConfig {
   val config: Config = ConfigFactory.load()
@@ -15,4 +15,5 @@ class AppConfig {
   val initialDelay: FiniteDuration = kinopoiskUploaderWorkerConfig.getDuration("initial_delay").toMillis.milliseconds
   val interval: FiniteDuration = kinopoiskUploaderWorkerConfig.getDuration("interval").toMillis.milliseconds
 
+  val mongoMovies: String = config.getString("mongodb.movies.uri")
 }

@@ -21,7 +21,8 @@ object Modules {
           "com.typesafe.akka" %% "akka-http" % AkkaHttpVersion,
           "com.typesafe.akka" %% "akka-slf4j" % AkkaVersion,
           "com.softwaremill.macwire" %% "macros" % "2.5.0" % "provided",
-
+          "com.softwaremill.common" %% "tagging" % "2.2.1",
+          "org.reactivemongo" %% "reactivemongo" % "1.0.5",
           //for logs
           "ch.qos.logback" % "logback-classic" % "1.2.3",
           "org.slf4j" % "slf4j-api" % "1.7.30"

@@ -1,11 +1,11 @@
 package ru.kinopoisk.daemon.kinopoisk_uploader
 
+import javax.inject.Inject
+
 import akka.actor.Cancellable
 import akka.event.{Logging, LoggingAdapter}
 import akka.stream.scaladsl.RunnableGraph
 import akka.stream.{ActorAttributes, Attributes, Supervision}
-
-import javax.inject.Inject
 
 class KinopoiskUploaderWorker @Inject()(
   source: KinopoiskUploaderSource,

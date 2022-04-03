@@ -1,9 +1,9 @@
 package ru.kinopoisk.daemon.kinopoisk_uploader
 
+import javax.inject.Inject
+
 import akka.NotUsed
 import akka.stream.scaladsl.Flow
-
-import javax.inject.Inject
 
 class KinopoiskUploaderFlow @Inject()(
 
