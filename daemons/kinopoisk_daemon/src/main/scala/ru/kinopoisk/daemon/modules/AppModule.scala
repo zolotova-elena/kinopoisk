@@ -10,7 +10,7 @@ import com.softwaremill.tagging.Tagger
 import ru.kinopoisk.daemon.config.AppConfig
 import ru.kinopoisk.daemon.daos.{KinopoiskLogDAO, ReactiveMongoApi}
 import ru.kinopoisk.daemon.kinopoisk_uploader.{KinopoiskUploaderFlow, KinopoiskUploaderSink, KinopoiskUploaderSource, KinopoiskUploaderWorker}
-import ru.kinopoisk.daemon.services.KinopoiskLogService
+import ru.kinopoisk.daemon.services.{KinopoiskLogService, KinopoiskService}
 
 trait AppModule {
 
@@ -36,6 +36,7 @@ trait AppModule {
 
   //service
   lazy val kinopoiskLogService: KinopoiskLogService = wire[KinopoiskLogService]
+  lazy val kinopoiskService: KinopoiskService = wire[KinopoiskService]
 }
 
 trait Movies

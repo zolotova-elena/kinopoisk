@@ -23,6 +23,8 @@ object Modules {
           "com.softwaremill.macwire" %% "macros" % "2.5.0" % "provided",
           "com.softwaremill.common" %% "tagging" % "2.2.1",
           "org.reactivemongo" %% "reactivemongo" % "1.0.5",
+          "com.beachape" %% "enumeratum" % "1.7.0",
+          "com.beachape" %% "enumeratum-reactivemongo-bson" % "1.7.0",
           //for logs
           "ch.qos.logback" % "logback-classic" % "1.2.3",
           "org.slf4j" % "slf4j-api" % "1.7.30"

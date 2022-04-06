@@ -2,7 +2,8 @@ package ru.kinopoisk.daemon.services
 
 import scala.concurrent.{ExecutionContext, Future}
 
-import org.joda.time.{DateTime, DateTimeZone}
+import org.joda.time.DateTime
+import reactivemongo.api.commands.WriteResult
 import ru.kinopoisk.daemon.daos.KinopoiskLogDAO
 import ru.kinopoisk.daemon.models.KinopoiskLog
 
@@ -10,24 +11,13 @@ class KinopoiskLogService(
   kinopoiskLogDAO: KinopoiskLogDAO
 )(implicit ec: ExecutionContext) {
 
-  def getLast(): Future[Option[KinopoiskLog]] = {
-    for {
-      //insertRes <- insertTestItem()
-      last <- kinopoiskLogDAO.getLast()
-    } yield {
-      last
-    }
+  def getLast(): Future[Option[KinopoiskLog]] = kinopoiskLogDAO.getLast()
+
+  def getLastByDate(currentDateTime: DateTime): Future[List[KinopoiskLog]] = {
+    kinopoiskLogDAO.getLastByDate(currentDateTime)
   }
 
-  def insertTestItem() = {
-    kinopoiskLogDAO.insert(
-      KinopoiskLog(
-        page = 1,
-        content = "",
-        created = (new DateTime(DateTimeZone.UTC).getMillis / 1000).toInt,
-        updated = (new DateTime(DateTimeZone.UTC).getMillis / 1000).toInt
-      )
-    )
+  def insert(kinopoiskLog: KinopoiskLog): Future[WriteResult] = {
+    kinopoiskLogDAO.insert(kinopoiskLog)
   }
-
 }

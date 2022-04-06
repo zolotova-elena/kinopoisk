@@ -16,4 +16,10 @@ class AppConfig {
   val interval: FiniteDuration = kinopoiskUploaderWorkerConfig.getDuration("interval").toMillis.milliseconds
 
   val mongoMovies: String = config.getString("mongodb.movies.uri")
+
+  private val kinopoiskConfig: Config = config.getConfig("services.kinopoisk")
+
+  val kinopoiskUri: String = kinopoiskConfig.getString("uri")
+  val kinopoiskToken: String = kinopoiskConfig.getString("token")
+  val maxRequestsInDay: Int = kinopoiskConfig.getInt("max-requests-in-day")
 }
