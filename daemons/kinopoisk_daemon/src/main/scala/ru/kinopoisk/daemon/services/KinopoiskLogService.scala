@@ -13,6 +13,8 @@ class KinopoiskLogService(
 
   def getLast(): Future[Option[KinopoiskLog]] = kinopoiskLogDAO.getLast()
 
+  def getOlderWait(): Future[Option[KinopoiskLog]] = kinopoiskLogDAO.getOlderWait()
+
   def getLastByDate(currentDateTime: DateTime): Future[List[KinopoiskLog]] = {
     kinopoiskLogDAO.getLastByDate(currentDateTime)
   }

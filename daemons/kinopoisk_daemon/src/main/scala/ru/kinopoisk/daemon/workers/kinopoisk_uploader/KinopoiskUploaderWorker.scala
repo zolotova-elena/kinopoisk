@@ -1,4 +1,4 @@
-package ru.kinopoisk.daemon.kinopoisk_uploader
+package ru.kinopoisk.daemon.workers.kinopoisk_uploader
 
 import javax.inject.Inject
 

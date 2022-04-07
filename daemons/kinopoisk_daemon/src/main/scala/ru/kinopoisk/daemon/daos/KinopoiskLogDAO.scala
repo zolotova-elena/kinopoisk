@@ -10,7 +10,7 @@ import reactivemongo.api.bson._
 import reactivemongo.api.bson.collection.BSONCollection
 import reactivemongo.api.commands.WriteResult
 import reactivemongo.api.{Cursor, ReadPreference}
-import ru.kinopoisk.daemon.models.KinopoiskLog
+import ru.kinopoisk.daemon.models.{KinopoiskLog, KinopoiskLogStatus}
 import ru.kinopoisk.daemon.modules.Movies
 
 class KinopoiskLogDAO @Inject()(
@@ -39,6 +39,17 @@ class KinopoiskLogDAO @Inject()(
     collection.flatMap(
       _.find(BSONDocument(), Option.empty[KinopoiskLog])
         .sort(BSONDocument("created" -> -1))
+        .one[KinopoiskLog]
+    )
+  }
+
+  def getOlderWait(): Future[Option[KinopoiskLog]] = {
+    collection.flatMap(
+      _.find(
+        BSONDocument("status" -> KinopoiskLogStatus.Wait.value),
+        Option.empty[KinopoiskLog]
+      )
+        .sort(BSONDocument("created" -> 1))
         .one[KinopoiskLog]
     )
   }

@@ -12,8 +12,13 @@ class AppConfig {
 
   private val kinopoiskUploaderWorkerConfig = config.getConfig("kinopoisk_uploader_worker")
 
-  val initialDelay: FiniteDuration = kinopoiskUploaderWorkerConfig.getDuration("initial_delay").toMillis.milliseconds
-  val interval: FiniteDuration = kinopoiskUploaderWorkerConfig.getDuration("interval").toMillis.milliseconds
+  val kinopoiskUploaderWorkerInitialDelay: FiniteDuration = kinopoiskUploaderWorkerConfig.getDuration("initial_delay").toMillis.milliseconds
+  val kinopoiskUploaderWorkerInterval: FiniteDuration = kinopoiskUploaderWorkerConfig.getDuration("interval").toMillis.milliseconds
+
+  private val kinopoiskParserWorkerConfig = config.getConfig("kinopoisk_parser_worker")
+
+  val kinopoiskParserWorkerInitialDelay: FiniteDuration = kinopoiskParserWorkerConfig.getDuration("initial_delay").toMillis.milliseconds
+  val kinopoiskParserWorkerInterval: FiniteDuration = kinopoiskParserWorkerConfig.getDuration("interval").toMillis.milliseconds
 
   val mongoMovies: String = config.getString("mongodb.movies.uri")
 

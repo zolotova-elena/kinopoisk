@@ -16,6 +16,7 @@ object Modules {
         libraryDependencies ++= Seq(
           guice,
           "joda-time" % "joda-time" % "2.10.10",
+          "org.typelevel" %% "cats-core" % "2.7.0",
           "com.typesafe.akka" %% "akka-actor-typed" % AkkaVersion,
           "com.typesafe.akka" %% "akka-stream" % AkkaVersion,
           "com.typesafe.akka" %% "akka-http" % AkkaHttpVersion,
@@ -25,6 +26,10 @@ object Modules {
           "org.reactivemongo" %% "reactivemongo" % "1.0.5",
           "com.beachape" %% "enumeratum" % "1.7.0",
           "com.beachape" %% "enumeratum-reactivemongo-bson" % "1.7.0",
+
+          "de.heikoseeberger" %% "akka-http-play-json" % "1.39.2",
+          "com.typesafe.play" %% "play-json" % "2.9.2",
+
           //for logs
           "ch.qos.logback" % "logback-classic" % "1.2.3",
           "org.slf4j" % "slf4j-api" % "1.7.30"

@@ -13,6 +13,7 @@ object Application extends App with AppModule {
   logger.info("App is running")
 
   val kinopoiskUploader = kinopoiskUploaderWorker.value.run()
+  val kinopoiskParser = kinopoiskParserWorker.value.run()
 
   val router: Route = path("health") {
     get {complete(OK)}
@@ -23,6 +24,7 @@ object Application extends App with AppModule {
   sys.addShutdownHook {
     logger.info("Terminating")
     kinopoiskUploader.cancel()
+    kinopoiskParser.cancel()
     logger.info("Terminated")
 
     logger.info("HTTP Terminating")

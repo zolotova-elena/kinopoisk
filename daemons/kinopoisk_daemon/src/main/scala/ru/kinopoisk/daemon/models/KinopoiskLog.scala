@@ -10,6 +10,7 @@ case class KinopoiskLog(
   status: KinopoiskLogStatus,
   contentType: KinopoiskLogContentType,
   content: String,
+  @Key("error_description") errorDescriptionO: Option[String] = None,
   created: Int,
   @Key("updated") updatedO: Option[Int] = None
 )
